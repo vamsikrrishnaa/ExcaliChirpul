@@ -1,11 +1,11 @@
 import React, { StrictMode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 
-import "@excalidraw/excalidraw/index.css";
+import "@excalidraw/excalidraw/dist/excalidraw.min.css";
 import "./CanvasRoot.scss";
 
 import type * as TExcalidraw from "@excalidraw/excalidraw";
-import type { ExcalidrawImperativeAPI, LibraryItems } from "@excalidraw/excalidraw/types";
+import type { ExcalidrawImperativeAPI, LibraryItems } from "@excalidraw/excalidraw/types/types";
 
 declare global {
   interface Window {
