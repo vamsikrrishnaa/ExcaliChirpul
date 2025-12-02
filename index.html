@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="theme-color" content="#020617" />
+
+  <title>ConnectED Canvas</title>
+  <!-- Chirpul Board UI font (example: Nunito). You can swap this to any other
+         open-source font or later move to @fontsource packages in the Vite
+         bundle; we scope usage to the board shell so it doesn't leak globally. -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" />
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background-color: #020617;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    #root {
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  <script>
+    window.EXCALIDRAW_ASSET_PATH =
+      "https://esm.sh/@excalidraw/excalidraw@0.18.0/dist/prod/";
+
+    // Guard against any attempt by the embedded editor to open
+    // libraries.excalidraw.com in a new tab/window. We want all
+    // library usage to stay inside our own app instead.
+    (function () {
+      const originalOpen = window.open;
+      window.open = function (url, ...args) {
+        try {
+          if (typeof url === "string" && url.startsWith("https://libraries.excalidraw.com")) {
+            return null;
+          }
+        } catch { }
+        return originalOpen ? originalOpen.call(window, url, ...args) : null;
+      };
+    })();
+  </script>
+</head>
+
+<body>
+  <noscript> You need to enable JavaScript to run this app. </noscript>
+  <div id="root"></div>
+
+  <script type="module">
+    import * as ExcalidrawLib from "@excalidraw/excalidraw";
+    window.ExcalidrawLib = ExcalidrawLib;
+  </script>
+  <script type="module" src="index.tsx"></script>
+</body>
+
+</html>
